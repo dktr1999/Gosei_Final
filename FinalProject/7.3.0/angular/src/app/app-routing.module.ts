@@ -25,9 +25,9 @@ import { ProfileComponent } from './profile/profile.component';
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent, canActivate: [AppRouteGuard] },
                     { path: 'update-password', component: ChangePasswordComponent, canActivate: [AppRouteGuard] },
-                    { path: 'profile', component: ProfileComponent},
-                    { path: 'calendar', component: CalendarComponent },
-                    { path: 'shift', component: ShiftComponent },
+                    { path: 'profile', component: ProfileComponent,canActivate: [AppRouteGuard] },
+                    { path: 'calendar', component: CalendarComponent ,canActivate: [AppRouteGuard] },
+                    { path: 'shift', component: ShiftComponent ,canActivate: [AppRouteGuard] },
                 ]
             }
         ])
