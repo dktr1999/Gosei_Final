@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Injector, InjectorType, OnInit } from '@angular/core';
+import { AppComponentBase } from '@shared/app-component-base';
+import { ShiftOfferListDto, ShiftOfferServiceProxy } from '@shared/service-proxies/service-proxies';
+import { result } from 'lodash-es';
 
 @Component({
   selector: 'app-shift',
   templateUrl: './shift.component.html',
   styleUrls: ['./shift.component.css']
 })
-export class ShiftComponent implements OnInit {
+export class ShiftComponent extends AppComponentBase implements OnInit {
+  shifts: ShiftOfferListDto[]=[];
+  constructor(injector: Injector, private shiftService: ShiftOfferServiceProxy) 
+  {
+    super(injector);
+  }
 
-  constructor() { }
   days: any[] = [1, 2, 3, 4, 5, 6, 7]
   weekday: any[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   dateNow: Date = new Date;
@@ -36,7 +43,15 @@ export class ShiftComponent implements OnInit {
       this.days[i] = this.weekday[this.dateNow.getDay()] + " " + this.dateNow.getDate();
     }
 
+    this.getShifts();
   }
+
+  getShifts(){
+    this.shiftService.getAllShift().subscribe(result => {
+      this.shifts = result.items;
+    })
+  }
+
   LeftButton() {
     this.dateNow.setDate(this.dateNow.getDate() - 7);
     this.checkWeek = this.checkWeek - 1;

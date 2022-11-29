@@ -4,6 +4,9 @@
       src="https://optimize-portal.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogin-banner.1fa296f1.png&w=1920&q=75">
   </div>
   <div class="login-box">
+    <div>
+      <img src="https://optimize-portal.vercel.app/_next/static/media/login-logo.cbf5804c.svg">
+    </div>
     <account-header></account-header>
     <div class="card">
       <div *ngIf="showTenantChange()" class="card-header">
@@ -11,9 +14,6 @@
       </div>
       <div class="card-body login-card-body">
         <router-outlet></router-outlet>
-      </div>
-      <div class="card-footer">
-        <account-languages></account-languages>
       </div>
     </div>
     <account-footer></account-footer>

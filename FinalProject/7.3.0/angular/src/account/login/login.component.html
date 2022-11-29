@@ -1,5 +1,4 @@
 ﻿<div [@routerTransition]>
-  <h4 class="text-center mb-3">{{ "LogIn" | localize }}</h4>
   <form novalidate autocomplete="off" #loginForm="ngForm" (ngSubmit)="login()">
     <div class="form-group">
       <div class="input-group">
@@ -75,9 +74,4 @@
       </div>
     </div>
   </form>
-  <p *ngIf="isSelfRegistrationAllowed" class="mb-1">
-    <a [routerLink]="['../register']">
-      <i class="fa fa-plus-circle"></i> {{ "Register" | localize }}
-    </a>
-  </p>
 </div>

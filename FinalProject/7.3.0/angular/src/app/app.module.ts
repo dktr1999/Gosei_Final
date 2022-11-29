@@ -52,6 +52,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgGridModule } from 'ag-grid-angular';
+import { ShiftOfferServiceProxy } from '@shared/service-proxies/service-proxies';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,7 @@ import { AgGridModule } from 'ag-grid-angular';
     SharedModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [ShiftOfferServiceProxy],
   bootstrap: [AppComponent],
   entryComponents: [
     // tenants
